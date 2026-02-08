@@ -8,7 +8,7 @@
 <body>
 
 <h1>Bookshelf</h1>
-<div th:if="${Error}" class="alert-error" th:text="${error}"></div>
+<div th:if="${Error}" class="alert-error" th:text="${Error}"></div>
 
 <div class="search-container">
     <form th:action="@{/books/search}" method="get">

@@ -38,8 +38,8 @@ public class BookController {
         Book foundBook=service.searchBook(title);
         if(foundBook == null){
             List<Book> list=service.findAll();
-            model.addAttribute("lis", list);
-            model.addAttribute("Error" + "We're sorry, the book" + title+" is not in our catalog." );
+            model.addAttribute("list", list);
+            model.addAttribute("Error",  "We're sorry, the book is not in our catalog." );
             return "bookList";
         }
 
