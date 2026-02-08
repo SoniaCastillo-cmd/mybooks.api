@@ -9,4 +9,7 @@ public interface BookService {
 
     public List<Book> findAll() throws ServiceException;
 
+    public Book searchBook(String title) throws  ServiceException;
+
+
 }

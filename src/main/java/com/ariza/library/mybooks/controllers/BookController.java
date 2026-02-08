@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -28,8 +29,16 @@ public class BookController {
     List<Book> list=service.findAll();
     model.addAttribute("list",list);
     return "bookList";
-
     }
+    @GetMapping("/books/search")
+    public String searchBook(@RequestParam String title, Model model) throws ServiceException{
+        log.info("[searchBook]");
+        log.debug("[title:{}]",title);
+        Book foundBook=service.searchBook(title);
+        model.addAttribute("book", foundBook);
+        return "bookDetails";
+    }
+
 
 
 

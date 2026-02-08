@@ -28,6 +28,23 @@ public class BookServiceImpl implements BookService {
             log.error("JPA_ERROR: Fetch books failed",e);
             throw new ServiceException("Error retrieving books",e);
         }
-
     }
+
+    @Override
+    public Book searchBook(String title) throws ServiceException {
+        log.info("[searchBook]");
+        log.debug("[title:{}]", title);
+        try {
+            title=title.trim().toUpperCase();
+            return repository.findByTitle(title);
+        } catch (Exception e) {
+            log.error("BookNotFoundExeption");
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+
+
 }
