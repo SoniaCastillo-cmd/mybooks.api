@@ -2,17 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
     <title>Book Details</title>
 </head>
+
 <body>
-
+<div class="book-card">
 <h2>Information about the book found:</h2>
-<p><span th:text="${book.title}">Title</span></p>
-<p><span th:text="${book.author}">Author</span></p>
-
-<hr>
-
-<a th:href="@{/books}">Home</a>
-
+    <p><strong>Title: </strong><span th:text="${book.title}"></span></p>
+    <p><strong>Author: </strong><span th:text="${book.author}"></span></p>
+    <a th:href="@{/books}" class="back-link">Back Home</a>
+</div>
 </body>
 </html>

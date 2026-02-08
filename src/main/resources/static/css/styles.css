@@ -1,0 +1,127 @@
+/* Configuraciones Globales */
+body {
+    background-color: #f8fafc; /* Un gris muy suave, casi blanco */
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #334155;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+
+h1 {
+    color: #0f172a;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+/* --- ESTILO DE LA FICHA (bookDetails) --- */
+.book-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    padding: 2rem;
+    border-radius: 16px; /* Más redondeado = más moderno */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f1f5f9; /* Borde muy fino en lugar de línea gruesa */
+    text-align: center;
+}
+
+.book-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+}
+
+.book-card p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.book-card strong {
+    color: #64748b; /* Etiquetas en gris suave */
+    font-weight: 500;
+}
+
+/* Botón "Back Home" con estilo moderno */
+.back-link {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 10px 20px;
+    background-color: #0f172a; /* Negro azulado moderno */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.back-link:hover {
+    background-color: #334155;
+    transform: translateY(-1px); /* Efecto de levitación al pasar el mouse */
+}
+
+/* --- ESTILO DE LA TABLA Y BUSCADOR (bookList) --- */
+.search-container {
+    margin-bottom: 2rem;
+}
+
+input[type="text"] {
+    padding: 10px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: #94a3b8;
+}
+
+table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+th {
+    background-color: #f1f5f9;
+    color: #475569;
+    font-weight: 600;
+    padding: 12px 20px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+td {
+    padding: 16px 20px;
+    border-top: 1px solid #f1f5f9;
+}
+/* --- ESTILO PARA EL MENSAJE DE ERROR --- */
+.alert-error {
+    background-color: #fee2e2; /* Un rojo muy clarito para el fondo */
+    color: #b91c1c;            /* Un rojo oscuro para que el texto se lea bien */
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #fecaca;
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    /* Una pequeña animación para que aparezca suavemente */
+    animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

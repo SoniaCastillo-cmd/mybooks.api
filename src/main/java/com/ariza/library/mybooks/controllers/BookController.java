@@ -34,7 +34,15 @@ public class BookController {
     public String searchBook(@RequestParam String title, Model model) throws ServiceException{
         log.info("[searchBook]");
         log.debug("[title:{}]",title);
+        title=title.trim().toUpperCase();
         Book foundBook=service.searchBook(title);
+        if(foundBook == null){
+            List<Book> list=service.findAll();
+            model.addAttribute("lis", list);
+            model.addAttribute("Error" + "We're sorry, the book" + title+" is not in our catalog." );
+            return "bookList";
+        }
+
         model.addAttribute("book", foundBook);
         return "bookDetails";
     }
