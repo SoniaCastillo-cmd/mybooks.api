@@ -31,3 +31,16 @@ build/
 
 ### VS Code ###
 .vscode/
+/target/
+.mvn/
+mvnw
+mvnw.cmd
+.idea/
+*.iml
+/target/
+.mvn/
+mvnw
+mvnw.cmd
+.idea/
+*.iml
+application.properties (OJO: si tienes contraseñas reales aquí, mejor no subirlo)
