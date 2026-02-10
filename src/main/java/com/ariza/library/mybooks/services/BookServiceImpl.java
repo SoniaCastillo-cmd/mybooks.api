@@ -4,7 +4,7 @@ package com.ariza.library.mybooks.services;
 import com.ariza.library.mybooks.entities.Book;
 import com.ariza.library.mybooks.repositories.BookRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.service.spi.ServiceException;
+import org.hibernate.service.spi.ServiceException;//preguntar a Maria
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,8 +25,8 @@ public class BookServiceImpl implements BookService {
         try {
             return repository.findAll();
         } catch (Exception e){
-            log.error("JPA_ERROR: Fetch books failed",e);
-            throw new ServiceException("Error retrieving books",e);
+            log.error("ERROR: Fetch books failed", e);
+            throw new ServiceException("Error retrieving books");//Error al recuperar libros
         }
     }
 
@@ -35,11 +35,21 @@ public class BookServiceImpl implements BookService {
         log.info("[searchBook]");
         log.debug("[title:{}]", title);
         try {
-            title=title.trim().toUpperCase();
-            return repository.findByTitle(title);
+            return repository.findByTitle(title.trim().toUpperCase());
         } catch (Exception e) {
-            log.error("BookNotFoundExeption");
-            throw new RuntimeException(e);
+            log.error("BookNotFoundExeption", e);
+            throw new ServiceException("Error BookNotFound");
+        }
+    }
+    @Override
+    public List<Book> findByAuthor(String author) throws ServiceException{
+        log.info("[findByAuthor]");
+        log.debug("[author:{}]", author);
+        try {
+            return  repository.findByAuthor(author.trim().toUpperCase());
+        } catch (Exception e){
+            log.error("AuthorNotFoundExeption",e);
+            throw new ServiceException("Error AuthorNotFound");
         }
     }
 

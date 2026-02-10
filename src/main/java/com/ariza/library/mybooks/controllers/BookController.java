@@ -34,8 +34,7 @@ public class BookController {
     public String searchBook(@RequestParam String title, Model model) throws ServiceException{
         log.info("[searchBook]");
         log.debug("[title:{}]",title);
-        title=title.trim().toUpperCase();
-        Book foundBook=service.searchBook(title);
+        Book foundBook=service.searchBook(title.trim().toUpperCase());
         if(foundBook == null){
             List<Book> list=service.findAll();
             model.addAttribute("list", list);
@@ -47,15 +46,20 @@ public class BookController {
         return "bookDetails";
     }
 
-
-
-
-
-
-
-
-
-
-
+    @GetMapping("/searchAuthor")
+    public String  searchByAuthor(@RequestParam String author, Model model) throws ServiceException{
+        log.info("[searchByAuthor]");
+        log.debug("[author:{}]", author);
+        try {
+            List<Book> books=service.findByAuthor(author.trim().toUpperCase());
+            model.addAttribute("books", books);
+            model.addAttribute("search", author);
+            return "book_list";
+        } catch (Exception e){
+            log.error("Error author not found",e);
+            model.addAttribute("errorMessage", "Author Not Found");
+            return "error";
+        }
+    }
 
 }

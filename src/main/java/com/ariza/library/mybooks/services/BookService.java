@@ -11,5 +11,6 @@ public interface BookService {
 
     public Book searchBook(String title) throws  ServiceException;
 
+    public List<Book> findByAuthor(String author) throws ServiceException;
 
 }

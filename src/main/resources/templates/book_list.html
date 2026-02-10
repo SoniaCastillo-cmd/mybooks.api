@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>My Books</title>
+</head>
+
+<body>
+<h1>Search Results</h1>
+
+<div class="search-container">
+    <form th:action="@{/searchBook}" method="get">
+        <input type="text" name="title" placeholder="Write the title.">
+        <button type="submit">Search book</button>
+    </form>
+
+</div>
+<br>
+
+<form th:action="@{/searchAuthor}" method="get">
+    <input type="text" name="author" placeholder="Write the author">
+    <button type="submit">Search Author</button>
+</form>
+</div>
+
+
+<div class="book-card" th:each="book :${books}">
+    <h2>Book Details: </h2>
+    <p><strong>Title: </strong><span th:text="${book.title}"></span></p>
+    <p><strong>Author: </strong><span th:text="${book.author}"></span></p>
+    <hr></div>
+
+<div th:if="${books.empty}">
+    <p>No books found for this author.</p>
+</div>
+
+<a th:href="@{/books}" class="back-link">Home</a>
+</body>
+</html>
